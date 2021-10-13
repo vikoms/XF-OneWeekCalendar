@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExampleCalendar.MainPage"
+             xmlns:control="clr-namespace:ExampleCalendar.Views"
+             BackgroundColor="Blue">
+
+    <StackLayout>
+        <control:WeekControl x:Name="CalendarWeekControl"
+                             ForegroundColor="White"
+                             ShowDayName="{Binding IsToggled, Source={x:Reference ShowDayNameSwitch}}"
+                             SelectedDateChanged="CalendarWeekControl_SelectedDateChanged"/>
+
+        <StackLayout Orientation="Horizontal"
+                     Margin="10,50,10,0"
+                     Padding="10"
+                     BackgroundColor="#999">
+            <Label VerticalOptions="Center"
+                   Margin="0,0,10,0"
+                   Text="Show Day Names on Calendar:" />
+
+            <Switch x:Name="ShowDayNameSwitch"
+                    VerticalOptions="Center" />
+        </StackLayout>
+
+        <Button x:Name="ChangeSelectedDate"
+                Text="Change Selected Date"
+                TextColor="White"
+                Clicked="ChangeSelectedDate_Clicked" />
+
+    </StackLayout>
+
+</ContentPage>
